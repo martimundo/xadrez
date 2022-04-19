@@ -19,11 +19,51 @@
         {
             return pecas[linha, coluna];
         }
+        public Peca peca(Posicao pos)
+        {
+            return pecas[pos.linha, pos.coluna];
 
+        }
+        //Metodo que verifica se existe uma peça em posição no tabuleito
+        public bool existePeca(Posicao posicao)
+        {
+            validarPosicao(posicao);
+            return peca(posicao) != null;
+        }
+
+        //Metodo que coloca a peça no tabuleiro
+        //O metodo foi melhorada para verificar se ja existe uma peça no tabuleiro, pois caso ja tenha peça
+        //o sistema precisa informar que ja tem peça no local.
         public void colocarPeca(Peca p, Posicao pos)
         {
+            if (existePeca(pos))
+            {
+                throw new TabuleiroException("Já existe uma peça nessa posição");
+            }
+            
             pecas[pos.linha, pos.coluna] = p;
             p.posicao = pos;
+        }
+
+        //valinha e colunas no tabuleiro
+        public bool posicaoValida(Posicao posicao)
+        {
+            if (posicao.linha < 0 || posicao.linha >= linhas || posicao.coluna < 0 || posicao.coluna >= 7)
+            {
+
+                return false;
+
+            }
+            return true;
+
+        }
+
+        public void validarPosicao(Posicao pos)
+        {
+            if (!posicaoValida(pos))
+            {
+                throw new TabuleiroException("Posição Inválida");
+            }
         }
     }
 }
