@@ -6,7 +6,7 @@
         public int linhas { get; set; }
         public int colunas { get; set; }
 
-        private Peca[,] pecas;
+        private Peca[,] pecas;//Matriz de paças.
 
         public Tabuleiro(int linhas, int colunas)
         {
@@ -17,7 +17,7 @@
 
         public Peca peca(int linha, int coluna)
         {
-            return pecas[linha, coluna];
+            return pecas[linha, coluna];//controi a matriz
         }
         public Peca peca(Posicao pos)
         {
