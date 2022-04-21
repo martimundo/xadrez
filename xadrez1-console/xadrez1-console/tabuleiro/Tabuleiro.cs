@@ -48,7 +48,7 @@
         //valinha e colunas no tabuleiro
         public bool posicaoValida(Posicao posicao)
         {
-            if (posicao.linha < 0 || posicao.linha >= linhas || posicao.coluna < 0 || posicao.coluna >= 7)
+            if (posicao.linha < 0 || posicao.linha >= linhas || posicao.coluna < 0 || posicao.coluna >= colunas)
             {
 
                 return false;
