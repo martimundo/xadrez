@@ -17,7 +17,7 @@
 
         public Peca peca(int linha, int coluna)
         {
-            return pecas[linha, coluna];//controi a matriz
+            return pecas[linha, coluna];//constroi a matriz
         }
         public Peca peca(Posicao pos)
         {
